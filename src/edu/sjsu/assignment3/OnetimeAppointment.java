@@ -10,8 +10,7 @@ package edu.sjsu.assignment3;
  */
 import java.time.LocalDate;
 
-public class OnetimeAppointment extends Appointment{
-    private static final LocalDate endDate = null;
+public class OnetimeAppointment extends Appointment {
 
     /**
      * use 'super' to inherits the Appointment class's constructor and parameters.
@@ -20,7 +19,7 @@ public class OnetimeAppointment extends Appointment{
      * @param startDate   Set appointment start date.
      */
     public OnetimeAppointment(String description, LocalDate startDate) {
-        super(description, startDate, endDate);
+        super(description,startDate,startDate);
     }
 
     /**

@@ -40,10 +40,9 @@ public class MonthlyAppointment extends Appointment{
         boolean before = date.isBefore(getEndDate());
         int date_month = date.getDayOfMonth();
         int start_month = getStartDate().getDayOfMonth();
-        if (after==true && before==true && date_month==start_month){
+        if (after && before && date_month==start_month){
             return true;
-        }else {
-            return false;
         }
+        else return date.equals(getStartDate()) || date.equals(getEndDate()) && date_month == start_month;
     }
 }

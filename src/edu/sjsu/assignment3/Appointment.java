@@ -11,16 +11,23 @@ package edu.sjsu.assignment3;
 
 import java.time.LocalDate;
 
+import java.util.Comparator;
+
 /**
  *
  */
-public abstract class Appointment {
+public abstract class Appointment implements Comparable<Appointment>{
     /**
      * create three variable
      */
     private String description;
     private LocalDate startDate;
     private LocalDate endDate;
+
+    @Override
+    public int compareTo(Appointment o) {
+        return 0;
+    }
 
     /**
      * create constructor with three parameters,
@@ -62,5 +69,27 @@ public abstract class Appointment {
      */
     public abstract boolean occursOn(LocalDate date);
 
+    @Override
+    public String toString() {
+        return "\n -> Appointment{" +
+                "description='" + description + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
+    }
+    public class DesComparator implements Comparator<Appointment> {
+
+        @Override
+        public int compare(Appointment o1, Appointment o2) {
+            // compare the description first, the start date, finally end date.
+            if (!o1.getDescription().equals(o2.getDescription())) {
+                return o1.getDescription().compareTo(o2.getDescription());
+            }
+            else if (!o1.getStartDate().equals(o2.getStartDate())) {
+                return o1.getStartDate().compareTo(o2.getStartDate());
+            } else return o1.getEndDate().compareTo(o2.getEndDate());
+        }
+
+    }
 }
 
